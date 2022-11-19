@@ -6,3 +6,19 @@ services:
     container_name: core_app
     ports:
       - "3000:3000"
+      
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400 #check for updates once per day
+    restart: unless-stopped
+  # watchtower:
+  #   container_name: watchtower
+  #   image: containrrr/watchtower
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   command: --interval 10 --cleanup
