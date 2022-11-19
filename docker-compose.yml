@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  app:
-    build: .
-    container_name: core_app
-    ports:
-      - "3000:3000"
+  # app:
+  #   build: .
+  #   container_name: core_app
+  #   ports:
+  #     - "3000:3000"
       
   watchtower:
     container_name: watchtower
@@ -16,9 +16,9 @@ services:
       - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_POLL_INTERVAL=86400 #check for updates once per day
     restart: unless-stopped
-  # watchtower:
-  #   container_name: watchtower
-  #   image: containrrr/watchtower
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   command: --interval 10 --cleanup
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sats_game
