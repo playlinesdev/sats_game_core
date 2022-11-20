@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { ApiQuery, ApiParam, ApiTags } from '@nestjs/swagger';
-import { LandPlotTypeAbstract } from 'src/domain/core/controllers/land-plot-type.controller.abstract';
+import { LandPlotTypeAbstract } from 'src/infra/core/controllers/base/land-plot-type.controller.abstract';
 import { CreateUpdateLandPlotTypeDto } from 'src/domain/core/dto/land-plot-type/create-update-land-plot.dto';
 
 @ApiTags('Land Plot Type')
