@@ -1,9 +1,10 @@
 import { Controller, Delete, Get, Post, Put, Query, Param, Body } from '@nestjs/common';
-import { ApiBody, ApiParam, ApiProperty, ApiQuery } from '@nestjs/swagger';
-import { LandPlotControllerAbstract } from 'src/domain/controllers/core/land-plot/land-plot.interface';
-import { CreateLandPlotDto } from 'src/domain/dto/land-plot/create-land-plot-dto';
-import { UpdateLandPlotDto } from 'src/domain/dto/land-plot/update-land-plot.dto';
+import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
+import { LandPlotControllerAbstract } from 'src/domain/core/controllers/land-plot.controller.abstract';
+import { CreateLandPlotDto } from 'src/domain/core/dto/land-plot/create-land-plot-dto';
+import { UpdateLandPlotDto } from 'src/domain/core/dto/land-plot/update-land-plot.dto';
 
+@ApiTags('Land Plot')
 @Controller('land-plot')
 export class LandPlotController implements LandPlotControllerAbstract {
     @Get('/:id')
@@ -15,7 +16,7 @@ export class LandPlotController implements LandPlotControllerAbstract {
     @ApiQuery({ name: 'y', type: Number, required: false, example: 2 })
     @ApiQuery({ name: 'landPlotType', type: Number, required: false, example: 3 })
     @ApiQuery({ name: 'landPlotQuality', type: Number, required: false, example: 4 })
-    @Get('/find/q')
+    @Get('/find/query')
     async find(@Query() params: CreateLandPlotDto): Promise<Object[]> {
         return []
     }
