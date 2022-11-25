@@ -4,6 +4,5 @@ import { LandPlotController } from 'src/infra/core/controllers/land-plot/land-pl
 
 @Module({
     controllers: [LandPlotController, LandPlotTypeController],
-    providers: []
 })
 export class CoreModule { }
