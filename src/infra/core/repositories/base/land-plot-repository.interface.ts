@@ -11,3 +11,5 @@ export interface ILandPlotRepository {
     deleteById(id: String): Promise<boolean>
     deleteByQuery(params: LandPlotSearchDto): Promise<boolean>
 }
+
+export const ILandPlotRepository = Symbol('ILandPlotRepository')

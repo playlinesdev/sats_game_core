@@ -1,13 +1,21 @@
 import { Module } from '@nestjs/common';
 import { EnvironmentConfigModule } from './infra/config/environment-config/environment-config.module';
 import { MongooseModule } from '@nestjs/mongoose';
-// import { CoreModule } from './domain/core/core.module';
 import { CoreModule } from './infra/core/core.module';
 
+let host = process.env.DATABASE_HOST
+let port = process.env.DATABASE_PORT
+let user = process.env.DATABASE_USER
+let pass = process.env.DATABASE_PASSWORD
+const dbUrl = `mongodb://${user}:${pass}@${host}:${port}/`
+console.log(dbUrl)
+
 @Module({
-  imports: [EnvironmentConfigModule, MongooseModule.forRoot('mongodb://root:root@localhost:27017/'), CoreModule],
-  controllers: [],
-  // providers: []
-  // providers: [LandPlot, LandPlotType, CropSlot, GameAsset],
+  imports: [
+    EnvironmentConfigModule,
+    MongooseModule.forRoot(dbUrl),
+    CoreModule
+  ],
+  controllers: []
 })
 export class AppModule { }

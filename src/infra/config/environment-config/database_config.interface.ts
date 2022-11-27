@@ -5,5 +5,6 @@ export interface IDatabaseConfig {
     getDatabaseUser(): String;
     getDatabasePassword(): String;
     getDatabaseSchema(): String;
+    getDatabaseUrl(): String;
     getDatabaseSync(): boolean;
 }

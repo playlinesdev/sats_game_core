@@ -5,6 +5,13 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class EnvironmentConfigService implements IDatabaseConfig {
     constructor(private config: ConfigService) { }
+    getDatabaseUrl(): String {
+        let host = this.getDatabaseHost()
+        let port = this.getDatabasePort()
+        let user = this.getDatabaseUser()
+        let pass = this.getDatabasePassword()
+        return `mongodb://${user}:${pass}@${host}:${port}/`
+    }
 
     getDatabaseHost(): string {
         return this.config.get<string>('DATABASE_HOST')

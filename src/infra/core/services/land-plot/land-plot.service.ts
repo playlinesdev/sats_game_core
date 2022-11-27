@@ -1,13 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateLandPlotDto } from 'src/domain/core/dto/land-plot/create-land-plot-dto';
 import { LandPlotSearchDto } from 'src/domain/core/dto/land-plot/land-plot-search.dto';
 import { UpdateLandPlotDto } from 'src/domain/core/dto/land-plot/update-land-plot.dto';
 import { LandPlot } from 'src/domain/core/entities/land-plot.entity';
-import { LandPlotRepositoryImpl } from '../../repositories/land-plot.repository';
+import { ILandPlotRepository } from '../../repositories/base/land-plot-repository.interface';
 
 @Injectable()
 export class LandPlotService {
-    constructor(private repository: LandPlotRepositoryImpl) { }
+    constructor(@Inject(ILandPlotRepository) private repository: ILandPlotRepository) { }
 
     findOne(params: LandPlotSearchDto): Promise<LandPlot> {
         return this.repository.findOne(params)

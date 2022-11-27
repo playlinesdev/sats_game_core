@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Post, Put, Query, Param, Body } from '@nestjs/common';
+import { Controller, Delete, Get, Post, Put, Query, Param, Body, Inject } from '@nestjs/common';
 import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { LandPlotControllerAbstract } from 'src/infra/core/controllers/base/land-plot.controller.abstract';
 import { CreateLandPlotDto } from 'src/domain/core/dto/land-plot/create-land-plot-dto';
@@ -8,7 +8,7 @@ import { LandPlotService } from '../../services/land-plot/land-plot.service';
 @ApiTags('Land Plot')
 @Controller('land-plot')
 export class LandPlotController implements LandPlotControllerAbstract {
-    constructor(private landPlotService: LandPlotService) { }
+    constructor(@Inject(LandPlotService) private landPlotService: LandPlotService) { }
 
     @Get('/:id')
     findOne(@Param('id') id: String): Promise<Object> {
