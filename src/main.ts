@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Sats Game Api')
+    .setTitle('New Sats Game Api')
     .setDescription('Api for Sats Game')
     .setVersion('1.0')
     .build();
