@@ -4,22 +4,22 @@ import { Model } from "mongoose";
 import { CreateLandPlotDto } from "src/domain/core/dto/land-plot/create-land-plot-dto";
 import { LandPlotSearchDto } from "src/domain/core/dto/land-plot/land-plot-search.dto";
 import { UpdateLandPlotDto } from "src/domain/core/dto/land-plot/update-land-plot.dto";
-import { LandPlot, LandPlotDocument } from "src/domain/core/entities/land-plot.entity";
 import { stringToObjectId } from "src/external/utils/objectid-transformer";
+import { LandPlotDocument, LandPlotModel } from "../models/land-plot.model";
 import { ILandPlotRepository } from "./base/land-plot-repository.interface";
 
 export class LandPlotRepositoryImpl implements ILandPlotRepository {
-    constructor(@InjectModel(LandPlot.name) private readonly plotModelObject: Model<LandPlotDocument>) { }
+    constructor(@InjectModel(LandPlotModel.name) private readonly plotModelObject: Model<LandPlotDocument>) { }
 
-    async findOne(params: LandPlotSearchDto): Promise<LandPlot> {
+    async findOne(params: LandPlotSearchDto): Promise<LandPlotModel> {
         let landPlot = await this.plotModelObject.findOne(params);
         return landPlot
     }
-    async findMany(params: LandPlotSearchDto): Promise<LandPlot[]> {
+    async findMany(params: LandPlotSearchDto): Promise<LandPlotModel[]> {
         let landPlots = await this.plotModelObject.find(params)
         return landPlots
     }
-    async create(params: CreateLandPlotDto): Promise<LandPlot> {
+    async create(params: CreateLandPlotDto): Promise<LandPlotModel> {
         let data = {
             x: params.x,
             y: params.y,
@@ -29,7 +29,7 @@ export class LandPlotRepositoryImpl implements ILandPlotRepository {
         let landPlot = await this.plotModelObject.create(data)
         return landPlot
     }
-    async update(id: string, params: UpdateLandPlotDto): Promise<LandPlot> {
+    async update(id: string, params: UpdateLandPlotDto): Promise<LandPlotModel> {
         let _id = stringToObjectId(id)
         await this.plotModelObject.updateOne({ _id: _id }, { $set: params }, { upsert: true })
         let landPlot = await this.plotModelObject.findOne({ _id: _id })

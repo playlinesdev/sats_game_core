@@ -1,13 +1,14 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { HydratedDocument } from 'mongoose';
 import { LandPlotQuality } from 'src/external/enum/landplot-quality.enum';
+import { BaseEntity } from 'typeorm';
 import { CropSlot } from '../crop-slot.entity';
 import { LandPlotType } from '../land-plot-type.entity';
 
 export type LandPlotDocument = HydratedDocument<LandPlot>
 
 @Schema()
-export class LandPlot {
+export class LandPlot extends BaseEntity {
     @Prop({ required: true })
     x: number
 

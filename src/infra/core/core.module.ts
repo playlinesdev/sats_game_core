@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { LandPlot, LandPlotSchema } from 'src/domain/core/entities/land-plot.entity';
+import { LandPlot } from 'src/domain/core/entities/land-plot.entity';
 import { LandPlotController } from './controllers/land-plot/land-plot.controller';
 import { LandPlotRepositoryImpl } from './repositories/land-plot.repository';
 import { LandPlotService } from './services/land-plot/land-plot.service';
@@ -10,10 +10,11 @@ import { LandPlotTypeController } from './controllers/land-plot-type/land-plot-t
 import { LandPlotType, LandPlotTypeSchema } from 'src/domain/core/entities/land-plot-type.entity';
 import { ILandPlotTypeRepository } from './repositories/base/land-plot-type.repository.interface';
 import { ILandPlotRepository } from './repositories/base/land-plot-repository.interface';
+import { LandPlotModel, LandPlotSchema } from './models/land-plot.model';
 
 @Module({
     imports: [MongooseModule.forFeature([
-        { name: LandPlot.name, schema: LandPlotSchema },
+        { name: LandPlotModel.name, schema: LandPlotSchema },
         { name: LandPlotType.name, schema: LandPlotTypeSchema },
     ])],
     controllers: [LandPlotController, LandPlotTypeController],
