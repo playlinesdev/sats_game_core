@@ -20,13 +20,14 @@ export class LandPlotRepositoryImpl implements ILandPlotRepository {
         return landPlots
     }
     async create(params: CreateLandPlotDto): Promise<LandPlotModel> {
-        let data = {
+        let dto = new CreateLandPlotDto({
             x: params.x,
             y: params.y,
-            landPlotType: stringToObjectId(params['landPlotType']),
+            landPlotTypeId: params.landPlotTypeId,
             landPlotQuality: params.landPlotQuality
-        }
-        let landPlot = await this.plotModelObject.create(data)
+        })
+        let model = new LandPlotModel(dto)
+        let landPlot = await this.plotModelObject.create(model)
         return landPlot
     }
     async update(id: string, params: UpdateLandPlotDto): Promise<LandPlotModel> {

@@ -17,7 +17,7 @@ export class LandPlotController implements LandPlotControllerAbstract {
 
     @ApiQuery({ name: 'x', type: Number, required: false, example: 1 })
     @ApiQuery({ name: 'y', type: Number, required: false, example: 2 })
-    @ApiQuery({ name: 'landPlotType', type: String, required: false, example: 3 })
+    @ApiQuery({ name: 'landPlotTypeId', type: String, required: false, example: 3 })
     @ApiQuery({ name: 'landPlotQuality', type: Number, required: false, example: 4 })
     @Get('/find/query')
     async find(@Query() params: CreateLandPlotDto): Promise<Object[]> {

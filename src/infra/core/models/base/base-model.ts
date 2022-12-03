@@ -1,8 +1,7 @@
-import { BaseEntity } from "typeorm";
+import { IBaseCreateDto } from "src/domain/core/dto/base/base-create.dto";
+import { BaseEntity } from "src/domain/core/entities/core/base-entity";
 
-export abstract class BaseModel<T, M> {
+export abstract class BaseModel<T> {
+    constructor(createDto: IBaseCreateDto) { }
     abstract toEntity(): T
-    static fromEntity<M>(): M {
-        throw new Error('Must be implemented for model subclasses')
-    }
 }

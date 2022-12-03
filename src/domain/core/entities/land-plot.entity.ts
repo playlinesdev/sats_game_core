@@ -5,7 +5,7 @@ import { CropSlot } from './crop-slot.entity';
 export class LandPlot {
     x: number
     y: number
-    landPlotType: LandPlotType
+    landPlotTypeId: string
     landPlotQuality: LandPlotQuality
     crops: CropSlot[]
 }
