@@ -8,7 +8,7 @@ import { LandPlotTypeService } from './services/land-plot-type/land-plot-type.se
 import { LandPlotTypeRepositoryImpl } from './repositories/land-plot-type.repository';
 import { LandPlotTypeController } from './controllers/land-plot-type/land-plot-type.controller';
 import { LandPlotType, LandPlotTypeSchema } from 'src/domain/core/entities/land-plot-type.entity';
-import { ILandPlotTypeRepository } from './repositories/base/land-plot-type.repository.interface';
+import { ILandPlotTypeRepository } from '../../domain/repositories/land-plot-type.repository.interface';
 import { ILandPlotRepository } from './repositories/base/land-plot-repository.interface';
 import { LandPlotModel, LandPlotSchema } from './models/land-plot.model';
 

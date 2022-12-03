@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ILandPlotTypeRepository } from '../../repositories/base/land-plot-type.repository.interface';
+import { ILandPlotTypeRepository } from '../../../../domain/repositories/land-plot-type.repository.interface';
 import { LandPlotTypeService } from './land-plot-type.service';
 import { Mock } from "moq.ts";
 

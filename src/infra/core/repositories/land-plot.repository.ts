@@ -4,9 +4,9 @@ import { Model } from "mongoose";
 import { CreateLandPlotDto } from "src/domain/core/dto/land-plot/create-land-plot-dto";
 import { LandPlotSearchDto } from "src/domain/core/dto/land-plot/land-plot-search.dto";
 import { UpdateLandPlotDto } from "src/domain/core/dto/land-plot/update-land-plot.dto";
+import { ILandPlotRepository } from "src/domain/repositories/land-plot-repository.interface";
 import { stringToObjectId } from "src/external/utils/objectid-transformer";
 import { LandPlotDocument, LandPlotModel } from "../models/land-plot.model";
-import { ILandPlotRepository } from "./base/land-plot-repository.interface";
 
 export class LandPlotRepositoryImpl implements ILandPlotRepository {
     constructor(@InjectModel(LandPlotModel.name) private readonly plotModelObject: Model<LandPlotDocument>) { }
