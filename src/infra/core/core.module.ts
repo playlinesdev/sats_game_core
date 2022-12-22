@@ -9,8 +9,8 @@ import { LandPlotTypeRepositoryImpl } from './repositories/land-plot-type.reposi
 import { LandPlotTypeController } from './controllers/land-plot-type/land-plot-type.controller';
 import { LandPlotType, LandPlotTypeSchema } from 'src/domain/core/entities/land-plot-type.entity';
 import { ILandPlotTypeRepository } from '../../domain/repositories/land-plot-type.repository.interface';
-import { ILandPlotRepository } from './repositories/base/land-plot-repository.interface';
 import { LandPlotModel, LandPlotSchema } from './models/land-plot.model';
+import { ILandPlotRepository } from 'src/domain/repositories/land-plot-repository.interface';
 
 @Module({
     imports: [MongooseModule.forFeature([

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ILandPlotRepository } from '../../repositories/base/land-plot-repository.interface';
 import { LandPlotService } from './land-plot.service';
 import { Mock } from 'moq.ts'
+import { ILandPlotRepository } from 'src/domain/repositories/land-plot-repository.interface';
 
 describe('LandPlotService', () => {
   let service: LandPlotService;

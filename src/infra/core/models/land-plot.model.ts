@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
 import { CreateLandPlotDto } from "src/domain/core/dto/land-plot/create-land-plot-dto";
+import { StructureAbstract } from "src/domain/core/entities/core/structure.abstract";
 import { CropSlot } from "src/domain/core/entities/crop-slot.entity";
 import { LandPlot } from "src/domain/core/entities/land-plot.entity";
 import { LandPlotQuality } from "src/external/enum/landplot-quality.enum";
@@ -34,13 +35,16 @@ export class LandPlotModel extends BaseModel<LandPlot> {
 
     crops: CropSlot[]
 
+    buildings: StructureAbstract[]
+
     toEntity(): LandPlot {
         return {
             x: this.x,
             y: this.y,
             landPlotQuality: this.landPlotQuality,
             landPlotTypeId: this.landPlotTypeId,
-            crops: this.crops
+            crops: this.crops,
+            buildings: this.buildings
         }
     }
 }
