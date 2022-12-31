@@ -22,7 +22,7 @@ import { ILandPlotRepository } from 'src/domain/repositories/land-plot-repositor
         LandPlotRepositoryImpl,
         LandPlotTypeService,
         { provide: ILandPlotRepository, useClass: LandPlotRepositoryImpl },
-        { provide: ILandPlotTypeRepository, useClass: LandPlotTypeRepositoryImpl }
+        { provide: ILandPlotTypeRepository, useClass: LandPlotTypeRepositoryImpl },
     ],
 })
 export class CoreModule { }

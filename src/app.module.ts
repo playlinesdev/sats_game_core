@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { EnvironmentConfigModule } from './infra/config/environment-config/environment-config.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CoreModule } from './infra/core/core.module';
+import { FinancialModule } from './infra/financial/financial.module';
 
 let host = process.env.DATABASE_HOST
 let port = process.env.DATABASE_PORT
@@ -14,8 +15,9 @@ console.log(dbUrl)
   imports: [
     EnvironmentConfigModule,
     MongooseModule.forRoot(dbUrl),
-    CoreModule
+    CoreModule,
+    FinancialModule
   ],
-  controllers: []
+  controllers: [],
 })
 export class AppModule { }
