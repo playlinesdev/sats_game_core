@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IFinancialRepository, InvoiceCreateDto, InvoicePayDto } from 'src/domain/financial/financial_repository.interface';
+import { InvoiceCreateDto, InvoicePayDto } from 'src/domain/financial/financial_repository.interface';
 import { FinancialRepositoryImpl } from '../../repositories/financial_repository_impl.repository';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class TransactionService {
         return this.financialRepository.userPayToGame(data)
     }
 
-    async userPayToUser(data: { recipientId: string, payerId: string, amount: number }) {
+    userPayToUser(data: { recipientId: string, payerId: string, amount: number }) {
         return this.financialRepository.userPayToUser(data)
     }
 }

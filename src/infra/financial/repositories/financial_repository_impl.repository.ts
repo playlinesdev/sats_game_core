@@ -1,6 +1,5 @@
 import { GetPaymentsDto, IFinancialRepository, InvoiceCreateDto, InvoiceCreateResponse, InvoicePayDto, InvoicePayResponse, Payment, PaymentUser, PaymentWallet, UserCreateDto, UserCreateResponse } from "src/domain/financial/financial_repository.interface";
 import axios from 'axios'
-import { ConfigService } from "@nestjs/config";
 
 export class FinancialRepositoryImpl implements IFinancialRepository {
     lnbitsData: { endpoint: string, invoiceReadKey: string, adminKey: string }
@@ -109,6 +108,7 @@ export class FinancialRepositoryImpl implements IFinancialRepository {
             throw error
         }
     }
+
     async createInvoice(createDto: InvoiceCreateDto): Promise<InvoiceCreateResponse> {
         var url = `${this.lnbitsData.endpoint}/api/v1/payments`
         var response = await axios.post(url, { ...createDto, out: false }, { headers: { 'X-Api-Key': createDto.invoiceKey ?? this.lnbitsData.invoiceReadKey } })
@@ -117,6 +117,7 @@ export class FinancialRepositoryImpl implements IFinancialRepository {
             paymentRequest: response.data['payment_request']
         }
     }
+
     async payInvoice(dto: InvoicePayDto): Promise<InvoicePayResponse> {
         var url = `${this.lnbitsData.endpoint}/api/v1/payments`
         let headers = { 'X-Api-Key': dto.invoiceKey ?? this.lnbitsData.adminKey }
