@@ -26,6 +26,33 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+Sats Tycoon
+
+USER USECASES
+1. Buy land plot
+2. Build well
+3. Collect water
+4. Buy seeds
+5. Grow crops
+6. Harvest crops
+7. Build animal sheds
+8. Buy animal
+9. Feed animals
+10. Collect animal extracts
+11. Build product factories
+12. Start product production
+13. Collect product
+14. Sell product to npc
+15. Watch ads to restart refilling energy
+
+SYSTEM USECASES
+1. Increase building progress
+2. Increase crops harvesting progress
+3. Increase animals needs
+4. Increase animal extracts production progress
+5. Decrease users energy
+6. Increase users energy
+
 ## Installation
 
 ```bash
