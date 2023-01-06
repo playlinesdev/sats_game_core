@@ -6,10 +6,11 @@ import { LandPlotService } from './services/land-plot/land-plot.service';
 import { LandPlotTypeService } from './services/land-plot-type/land-plot-type.service';
 import { LandPlotTypeRepositoryImpl } from './repositories/land-plot-type.repository';
 import { LandPlotTypeController } from './controllers/land-plot-type/land-plot-type.controller';
-import { LandPlotType, LandPlotTypeSchema } from 'src/domain/core/entities/land-plot-type.entity';
+import { LandPlotType } from 'src/domain/core/entities/land-plot-type.entity';
 import { ILandPlotTypeRepository } from '../../domain/repositories/land-plot-type.repository.interface';
 import { LandPlotModel, LandPlotSchema } from './models/land-plot.model';
 import { ILandPlotRepository } from 'src/domain/repositories/land-plot-repository.interface';
+import { LandPlotTypeSchema } from './models/land-plot-type.model';
 
 @Module({
     imports: [MongooseModule.forFeature([
@@ -25,4 +26,5 @@ import { ILandPlotRepository } from 'src/domain/repositories/land-plot-repositor
         { provide: ILandPlotTypeRepository, useClass: LandPlotTypeRepositoryImpl },
     ],
 })
+
 export class CoreModule { }

@@ -2,9 +2,10 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { CreateUpdateLandPlotTypeDto } from "src/domain/core/dto/land-plot-type/create-update-land-plot.dto";
 import { LandPlotTypeSearchDto } from "src/domain/core/dto/land-plot-type/land-plot-type-search.dto";
-import { LandPlotType, LandPlotTypeDocument } from "src/domain/core/entities/land-plot-type.entity";
+import { LandPlotType } from "src/domain/core/entities/land-plot-type.entity";
 import { ILandPlotTypeRepository } from "src/domain/repositories/land-plot-type.repository.interface";
 import { stringToObjectId } from "src/external/utils/objectid-transformer";
+import { LandPlotTypeDocument } from "../models/land-plot-type.model";
 
 export class LandPlotTypeRepositoryImpl implements ILandPlotTypeRepository {
     constructor(@InjectModel(LandPlotType.name) private readonly landPlotTypeModel: Model<LandPlotTypeDocument>) { }
