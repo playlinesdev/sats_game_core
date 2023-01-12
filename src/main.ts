@@ -8,7 +8,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('New Sats Game Api')
     .setDescription('Api for Sats Game')
-    .setVersion('0.1.1')
+    .setVersion('0.1.2')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
