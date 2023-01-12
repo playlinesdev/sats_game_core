@@ -19,6 +19,7 @@ export class LandPlotRepositoryImpl implements ILandPlotRepository {
         let landPlots = await this.plotModelObject.find(params)
         return landPlots
     }
+
     async create(params: CreateLandPlotDto): Promise<LandPlotModel> {
         let dto = new CreateLandPlotDto({
             x: params.x,
@@ -30,17 +31,20 @@ export class LandPlotRepositoryImpl implements ILandPlotRepository {
         let landPlot = await this.plotModelObject.create(model)
         return landPlot
     }
+
     async update(id: string, params: UpdateLandPlotDto): Promise<LandPlotModel> {
         let _id = stringToObjectId(id)
         await this.plotModelObject.updateOne({ _id: _id }, { $set: params }, { upsert: true })
         let landPlot = await this.plotModelObject.findOne({ _id: _id })
         return landPlot
     }
+
     async deleteById(id: string): Promise<boolean> {
         let _id = stringToObjectId(id)
         let result = await this.plotModelObject.deleteOne({ _id: _id })
         return result?.deletedCount > 0 ?? false
     }
+
     deleteByQuery(params: LandPlotSearchDto): Promise<boolean> {
         throw new Error("Method not implemented.");
     }

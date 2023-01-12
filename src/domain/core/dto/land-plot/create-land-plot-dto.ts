@@ -19,6 +19,13 @@ export class CreateLandPlotDto implements IBaseCreateDto {
     @ApiProperty({ name: 'landPlotTypeId', type: String })
     landPlotTypeId: string
 
-    @ApiProperty({ name: 'landPlotQuality', enum: [LandPlotQuality.poor, LandPlotQuality.regular, LandPlotQuality.rare, LandPlotQuality.epic] })
+    @ApiProperty({
+        name: 'landPlotQuality', enum: [
+            LandPlotQuality.poor,
+            LandPlotQuality.regular,
+            LandPlotQuality.rare,
+            LandPlotQuality.epic
+        ]
+    })
     landPlotQuality: number
 }

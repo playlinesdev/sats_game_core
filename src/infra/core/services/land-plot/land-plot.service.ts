@@ -28,6 +28,5 @@ export class LandPlotService {
     deleteByQuery(params: LandPlotSearchDto): Promise<boolean> {
         return this.repository.deleteByQuery(params)
     }
-
-
 }
+
